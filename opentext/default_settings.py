@@ -1,0 +1,2 @@
+
+REPOSITORY_BASE = '/tmp'

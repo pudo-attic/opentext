@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}{{ title }} - {{ metadata.get('title', '') }}{% endblock %}
+{% block body %}
+  {% if prev %}
+    <a href="{{ url_for('item', id=id, item=prev.id) }}">&laquo; prev</a>
+  {% endif %}
+  
+  {{ title }}
+
+  {% if frwd %}
+    <a href="{{ url_for('item', id=id, item=frwd.id) }}">next &raquo;</a>
+  {% endif %}
+  
+  <script>
+    window.navigator.geolocation.getCurrentPosition(function(pos) {
+      console.log(pos);
+    });
+  </script>
+    
+  <hr/>
+  {{body|safe}}
+  <hr/>
+  {{metadata.get('rights')|safe}}
+{% endblock %}
+
